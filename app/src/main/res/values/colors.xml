@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F2800D</color>
+    <color name="colorPrimaryDark">#E65200</color>
+    <color name="colorAccent">#F57D00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="BgColor2">#EEEEEE</color>
+    <color name="typography1">#424242</color>
+    <color name="typography2">#757575</color>
+    <color name="typography3">#9B9B9B</color>
+    <color name="icongraphy1">#757575</color>
+    <color name="icongraphy2">#B9B9B9</color>
+    <color name="icongraphy3">#FFFFFF</color>
+    <color name="solidStroke">#F57D00</color>
+    <color name="errorFalse">#00AC58</color>
+    <color name="errorTrue">#FF1900</color>
+    <color name="stroke">#BDBDBD</color>
+</resources>

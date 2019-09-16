@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/radius_with_shadow"
+    android:elevation="2dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="38dp"
+            android:layout_height="25dp"
+            android:background="@drawable/radius_oange_background_percentage"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:text="%"
+                android:textColor="@color/white"
+                android:textDirection="anyRtl"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:text="25"
+                android:textColor="@color/white"
+                android:textDirection="anyRtl"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="right|center_horizontal|center_vertical">
+
+            <TextView
+
+                android:id="@+id/item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_horizontal|center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samim"
+                android:gravity="right|center_horizontal"
+                android:shadowColor="@android:color/black"
+                android:text="امتحان"
+                android:textColor="@color/typography1"
+                android:textFontWeight="12sp"
+                android:textSize="14sp"></TextView>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="82dp"
+            android:layout_height="82dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
