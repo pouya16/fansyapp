@@ -13,7 +13,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center_vertical"
         android:layoutDirection="rtl"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btnBack"
@@ -98,6 +98,7 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUsingFansyCondition"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -113,6 +114,7 @@
             android:layout_weight="1" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGetActivateCode"
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

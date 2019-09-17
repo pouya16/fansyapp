@@ -1,79 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Activities.MessageLogin">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal"
-        android:textDirection="rtl">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/back" />
-
-        <TextView
-            style="@style/headerTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:text="تایید شماره تلفن همراه" />
+            android:gravity="center_vertical"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/back" />
 
-    <View
-        android:id="@+id/view5"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/samimfd"
+                android:text="تایید شماره تلفن همراه"
+                android:textColor="@color/typography2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="13sp"
+                android:text="کد فعالسازی 5 رقمی به شماره "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:textStyle="bold"
+                android:textColor="@color/typography1"
+                android:textSize="13sp"
+                android:text=" "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="13sp"
+                android:text=" پیامک شد."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnEditNumber"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/samimfd"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="ویرایش شماره"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="15sp"
+                android:text="لطفا کد را وارد کنید"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <EditText
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin1"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="20sp"
+                android:text=""/>
+            <EditText
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin2"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="20sp"
+                android:text=""/>
+            <EditText
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin3"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="20sp"
+                android:text=""/>
+            <EditText
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin4"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="20sp"
+                android:text=""/>
+            <EditText
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin5"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="20sp"
+                android:text=""/>
+
+        </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:textDirection="rtl"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layoutDirection="rtl"
-        android:layout_gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="کد فعالسازی 5 رقمی به شماره "
-            android:textSize="12sp"
-            android:fontFamily="@font/samimfd"
-            android:textColor="@color/typography1"/>
+        android:layout_marginLeft="50dp"
+        android:textDirection="rtl">
 
         <TextView
+            android:id="@+id/txtViewWrongMessageCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/phoneEdit"
-            android:text=" 09133333333 "
-            android:textSize="12sp"
             android:fontFamily="@font/samimfd"
-            android:textStyle="bold"
-            android:textColor="@color/typography1"/>
+            android:text="کد وارد شده اشتباه است."
+            android:textColor="@color/errorTrue"
+            android:textSize="12sp" />
+    </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" ارسال شد."
-            android:fontFamily="@font/samimfd"
-            android:textSize="12sp"
-            android:textColor="@color/typography1"/>
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnResendVerificationCode"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="136dp"
+                android:layout_height="54dp"
+                android:fontFamily="@font/samimfd"
+                android:text="ارسال مجدد کد"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/colorPrimary" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/samimfd"
+                android:textColor="@color/typography1"
+                android:textSize="15sp"
+                android:text=""/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerifyVerificationCode"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="136dp"
+                android:layout_height="54dp"
+                android:fontFamily="@font/samimfd"
+                android:text="ثبت نام"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+
+
+
+
 
     </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
