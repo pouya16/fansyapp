@@ -110,6 +110,13 @@ public class MainActivity extends AppCompatActivity {
                 getToken(gotPhoneNumber);
             }
         });
+        btnLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 
 

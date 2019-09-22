@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="خانه"
+        android:icon="@drawable/home"
+        android:id="@+id/navigation_home"/>
+    <item android:title="دسته بندی"
+        android:icon="@drawable/categories"
+        android:id="@+id/navigation_categories"/>
+    <item android:title="سفارشات"
+        android:icon="@drawable/orders"
+        android:id="@+id/navigation_orders"/>
+    <item android:title="پروفایل"
+        android:icon="@drawable/profile"
+        android:id="@+id/navigation_profile"/>
+    <item android:title="پشتیبانی"
+        android:icon="@drawable/backup"
+        android:id="@+id/navigation_backup"/>
+
+</menu>
