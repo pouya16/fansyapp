@@ -121,50 +121,65 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
+
             <EditText
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/pin1"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/samimfd"
-                android:textColor="@color/typography1"
-                android:textSize="20sp"
-                android:text=""/>
-            <EditText
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/typography1"
+                android:textSize="20sp" />
+
+            <EditText
                 android:id="@+id/pin2"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/samimfd"
-                android:textColor="@color/typography1"
-                android:textSize="20sp"
-                android:text=""/>
-            <EditText
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/typography1"
+                android:textSize="20sp" />
+
+            <EditText
                 android:id="@+id/pin3"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/samimfd"
-                android:textColor="@color/typography1"
-                android:textSize="20sp"
-                android:text=""/>
-            <EditText
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/samimfd"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/typography1"
+                android:textSize="20sp" />
+
+            <EditText
                 android:id="@+id/pin4"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/samimfd"
-                android:textColor="@color/typography1"
-                android:textSize="20sp"
-                android:text=""/>
-            <EditText
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/pin5"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="16dp"
                 android:fontFamily="@font/samimfd"
+                android:gravity="center_horizontal"
+                android:text=""
                 android:textColor="@color/typography1"
-                android:textSize="20sp"
-                android:text=""/>
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/pin5"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/samimfd"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/typography1"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
