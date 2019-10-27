@@ -1,64 +1,68 @@
 package com.example.esppad.fansy4.fragments;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
-import com.example.esppad.fansy4.Classes.Api;
-import com.example.esppad.fansy4.Classes.Categories;
+import com.example.esppad.fansy4.Adapters.AdaptorViewPager;
+import com.example.esppad.fansy4.Classes.MyApi;
 import com.example.esppad.fansy4.R;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 
 public class CategoriesFragment extends Fragment {
     public CategoriesFragment() {
         // Required empty public constructor
     }
-    JSONObject CategoriesObject;
-    JSONArray FirstCategoriesArray;
-    int tabCount = 0;
-    ArrayList<String> tabNames = new ArrayList<>();
-    final ArrayList<Categories> categoriesArray = new ArrayList<>();
-    boolean isSuccess = false;
-    TextView test;
-    Api api = new Api();
 
+    MyApi api = new MyApi();
+    TableLayout tabLayout;
+    ViewPager viewPager;
+    AdaptorViewPager adaptorViewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_categories, container, false);
-        test = (TextView) getActivity().findViewById(R.id.test);
-        getCategories();
-
-
+        tabLayout = (TableLayout) getActivity().findViewById(R.id.tablayout_categories);
+        viewPager =(ViewPager) getActivity().findViewById(R.id.viewpager_category);
+        try{
+            api.createOrOpenDataBase(getActivity());
+        }catch (Exception e){
+            Toast.makeText(getActivity(),"failed to connect to database",Toast.LENGTH_SHORT);
+        }
+        SQLiteDatabase db= api.getDatabase();
+        int pagesCount = getCount(db);
+        String[] pageTitle = new String[pagesCount];
+        for(int i = 0;i<pagesCount;i++){
+            pageTitle[i] = getPageTitle(db,i);
+        }
+        Log.i("Log9","number of tabs is: " + pagesCount);
+        Log.i("Log9","tab names are: " + pageTitle.toString());
+        adaptorViewPager = new AdaptorViewPager(getActivity().getSupportFragmentManager(),pagesCount,pageTitle);
+        Log.i("Log9","adaptorViewPager is: " + adaptorViewPager.toString());
+        if(adaptorViewPager!=null) {
+            viewPager.setAdapter(adaptorViewPager);
+            tabLayout.addView(viewPager);
+        }
         return view;
     }
+
+
 
     @Override
     public void onResume() {
         super.onResume();
         Log.i("Log1","On resume");
-        getCategories();
+        //getCategories();
     }
 
     @Override
@@ -67,83 +71,39 @@ public class CategoriesFragment extends Fragment {
         super.onPause();
     }
 
-    private void getCategories(){
-        OkHttpClient client = new OkHttpClient();
-        Request request = api.getCategoryRequest();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, final IOException e) {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getActivity(),"Failed to connect to to server",Toast.LENGTH_SHORT).show();
-                        Log.i("Log","Failed to connect to to server, "+ e.toString());
-                    }
-                });
-            }
+    private String getPageTitle(SQLiteDatabase db, int position) {
+        String pageTitle ="";
+        try{
+            String query = "SELECT * FROM firstcategory";
+            Cursor cursor = db.rawQuery(query,null);
+            cursor.moveToPosition(position);
+            pageTitle = cursor.getString(1);
+            Log.i("Log9","pageTitle is: " + pageTitle);
 
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+        }catch (Exception e){
+            Log.i("Log9","can not respawn category name: " + e.toString());
+        }
+        return pageTitle;
 
-                    try {
-                        CategoriesObject = new JSONObject(response.body().string());
-                        if (CategoriesObject != null) {
-                            FirstCategoriesArray = CategoriesObject.getJSONArray("data");
-                            Log.i("LOG5", "not null" + FirstCategoriesArray.toString());
-                            tabCount = FirstCategoriesArray.length();
-                            for(int i=0;i<tabCount;i++){
-                                JSONObject eachcategory = FirstCategoriesArray.getJSONObject(i);
-                                String catName = eachcategory.getString("catTitle");
-                                String catPic = eachcategory.getString("catPicture");
-                                boolean visible = eachcategory.getBoolean("visible");
-                                boolean isActive = eachcategory.getBoolean("isActive");
-                                int userId = eachcategory.getInt("userId");
-                                String modified = eachcategory.getString("modified");
-                                JSONObject secondCategory = eachcategory.getJSONObject("secondCategories");
-                                Categories cat = new Categories(catName,visible,isActive,userId,catPic,modified,secondCategory);
-                                categoriesArray.add(cat);
-                                tabNames.add(catName);
-                            }
-                            Log.i("Log7","tabCount is: "+ tabNames.size());
-                            //test.setText(CategoriesObject.toString());
-                        } else {
-                            Log.i("LOG5", "null");
-                            //test.setText("null object");
-                        }
-                        Log.i("Log", response.body().toString());
-                        Log.i("Log2", response.toString());
-                        Log.i("Log3", CategoriesObject.toString());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                try {
-                    boolean gettingToken = CategoriesObject.getBoolean("isSuccess");
-                    isSuccess = gettingToken;
-                    Log.i("Log4", "gettingToken is: " + gettingToken);
-                    Log.i("Log5", "isSuccess is: " + isSuccess);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                String text = "";
-                if (isSuccess){
-
-                }
-                else{
-                    text = "no token!";
-                }
-                final String finalText = text;
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getActivity(), ""+ finalText, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-
-
-            }
-        });
     }
+
+    private int getCount(SQLiteDatabase db) {
+        int pagesCount = 0;
+        Log.i("Log9", "Start counting ");
+        try{
+            String query ="SELECT * FROM firstcategory";
+            Cursor cursor = db.rawQuery(query,null);
+            while(cursor.moveToNext()){
+                pagesCount++;
+            }
+            Log.i("Log9","page count is: " + pagesCount);
+
+        }catch (Exception e){
+            Log.i("Log9","Cant Count ViewPagers Count: " + e.toString());
+        }
+        return pagesCount;
+    }
+
+
 
 }

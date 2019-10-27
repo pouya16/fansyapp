@@ -14,10 +14,12 @@ import okhttp3.Request;
  * A class for connecting to fansy api
  */
 
-public class Api {
+public class MyApi {
+
+    public static MyApi app;
 
     //internet API addresses:
-    private static final String ROOT_URL = "185.79.157.79/api/v1/";
+    private static final String ROOT_URL = "http://185.79.157.79:83/api/v1/";
     private static final String TOKEN_EXTRA = "OldUser/Token";
     private static final String CTEGORY_EXTRA = "Categories";
     private static final String USERS_EXTRA = "OldUser/";
@@ -40,6 +42,10 @@ public class Api {
 
     //create database or open database fo further use:
 
+    public static SQLiteDatabase getDatabase() {
+        return database;
+    }
+
     public void createAppDirectories(Context context) {
         File dbDir = new File(directory);
 
@@ -51,7 +57,6 @@ public class Api {
             Toast.makeText(context, "Not Made",Toast.LENGTH_LONG).show();
         }
     }
-
     public void createOrOpenDataBase(Context context){
         if(database!=null){
             return;
@@ -59,6 +64,8 @@ public class Api {
         MyDatabaseHelper dbHelper = new MyDatabaseHelper(context);
         database = dbHelper.getWritableDatabase();
     }
+
+
 
 
     //Internet connection Methods

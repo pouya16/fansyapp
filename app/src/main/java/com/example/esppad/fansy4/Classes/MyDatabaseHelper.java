@@ -3,15 +3,16 @@ package com.example.esppad.fansy4.Classes;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "F1001";
     public static final int DB_VERSION =1 ;
-    Api api = new Api();
+    public static final String directory = Environment.getExternalStorageDirectory().getAbsolutePath()+"/fansy/sampleDatabase";
 
     public MyDatabaseHelper(Context context) {
-        super(context, api.directory + "/" + DB_NAME, null, DB_VERSION);
+        super(context, directory + "/" + DB_NAME, null, DB_VERSION);
     }
 
     @Override
@@ -36,11 +37,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 "CREATE TABLE 'firstcategory' (" +
                         //0:
                         "'autoId' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL , " +
-                        "'cattitle' TEXT UNIQUE, " +
+                        "'cattitle' TEXT , " +
                         "'catpicture' BLOB, " +
                         "'visible' INTEGER, " +
                         "'isactive' INTEGER, " +
                         "'userid' INTEGER, " +
+                        "'childrennumber' INTEGER, " +
                         //6:
                         "'modified' TEXT " +
                         ")";
@@ -51,16 +53,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void createSecondCategory(SQLiteDatabase db) {
         String query =
                 "CREATE TABLE 'secondcategory' (" +
+                        //0
                         "'autoId' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL , " +
                         "'cattitle' TEXT, " +
                         "'catpicture' BLOB, " +
                         "'visible' INTEGER, " +
+                        //4
                         "'isactive' INTEGER, " +
                         "'userid' INTEGER, " +
                         "'categoryid' TEXT, " +
-                        "'parentid' INTEGER, " +
+                        //7
+                        "'parentid' TEXT, " +
                         "'childrennumber' INTEGER, " +
-                        "'modofied' TEXT" +
+                        "'modified' TEXT" +
                         ")";
 
         db.execSQL(query);
@@ -75,8 +80,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                         "'isactive' INTEGER, " +
                         "'userid' INTEGER, " +
                         "'categoryid' TEXT, " +
-                        "'parentid' INTEGER, " +
-                        "'modofied' TEXT" +
+                        "'parentid' TEXT, " +
+                        "'modified' TEXT" +
                         ")";
 
         db.execSQL(query);
@@ -129,8 +134,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(query);
             Log.i("Log", "machine successfully added");
         }catch (Exception e){
-            Log.e("Log",""+e.getMessage());
+            Log.e("Log-d",""+e.getMessage());
             Log.i("Log", "Failed to add machine");
         }
     }
+
+
 }

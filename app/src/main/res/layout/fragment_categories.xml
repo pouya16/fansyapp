@@ -30,21 +30,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/tablayout_categories"
         app:tabGravity="fill"
+        android:backgroundTint="#ffffffff"
         app:tabIndicatorColor="@color/white"
+        app:tabTextColor="@color/typography1"
+        app:tabMode="scrollable"
         app:tabIndicatorHeight="8dp">
 
     </com.google.android.material.tabs.TabLayout>
-
-        <TextView
-            android:id="@+id/test"
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_categories"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
+            android:id="@+id/viewpager_category"
+            android:layoutDirection="ltr"
+            />
     
 </LinearLayout>
 </FrameLayout>

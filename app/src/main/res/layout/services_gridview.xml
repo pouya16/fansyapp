@@ -15,7 +15,7 @@
 
         <!-- drawable/rectangle_2.xml -->
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/ListViewImage"
             android:layout_width="132dp"
             android:layout_height="132dp" />
 
@@ -70,7 +70,7 @@
 
         <TextView
 
-            android:id="@+id/item_text"
+            android:id="@+id/ListViewCatTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
